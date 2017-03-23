@@ -35,3 +35,20 @@ Or for help:
 ```
 docker run sellorm/linkchecker --help
 ```
+
+## couchdb
+
+CouchDB in a container!
+
+Available on docker hub as `sellorm/couchdb`
+
+CouchDB is a lightweight document oriented database.
+
+Usage:
+
+```
+docker run -v $(PWD):/var/lib/couchdb -p 5984:5984 sellorm/couchdb
+```
+
+This exposes couchdb on port 5984 on your local machine.
+
