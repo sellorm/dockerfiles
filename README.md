@@ -50,5 +50,5 @@ Usage:
 docker run -v $(PWD):/var/lib/couchdb -p 5984:5984 sellorm/couchdb
 ```
 
-This exposes couchdb on port 5984 on your local machine.
+This exposes couchdb on port 5984 on your local machine and writes the couchdb database files to the current working directory.
 
