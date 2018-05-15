@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export mything=thisvalue
+docker run -ti -e mything --rm sellorm/utilishell
