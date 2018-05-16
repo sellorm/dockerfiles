@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if [[ -z ${1} ]]; then
+    echo "Usage: dl <url of file to download>"
+    exit 1
+fi
+FILEURL=${1}
+FILENAME=${FILEURL##*/}
+curl -o ${FILENAME} ${FILEURL}
+
