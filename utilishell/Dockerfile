@@ -1,15 +1,17 @@
-# Linkchecker 9.3-4
+# Utilishell container
 
 FROM debian:latest
 
 RUN apt-get update && apt-get upgrade -y && \
-  apt-get install -y curl htop nano-tiny vim-tiny git make tree && \
+  apt-get install -y curl htop nano-tiny vim-tiny git make tree \
+    mysql-client postgresql-client && \
   apt-get clean -y && \
   apt-get autoclean -y && \
   apt-get autoremove -y
 
-RUN useradd --create-home --shell /bin/bash utilishell && \
-  echo "utilishell" > /etc/hostname
+COPY ./extras/dl /usr/local/bin/dl
+
+RUN useradd --create-home --shell /bin/bash utilishell
 
 USER utilishell
 WORKDIR /home/utilishell
