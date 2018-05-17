@@ -1,18 +1,26 @@
 # Utilishell container
 
-FROM debian:latest
+FROM debian:stable-slim
 
+# Install updates and repo hosted tools and cleanup
+# currently missing due to dependency errors - postgresql-client
 RUN apt-get update && apt-get upgrade -y && \
   apt-get install -y curl htop nano-tiny vim-tiny git make tree \
-    mysql-client postgresql-client && \
+    mysql-client sudo gdebi && \ 
   apt-get clean -y && \
   apt-get autoclean -y && \
   apt-get autoremove -y
 
-COPY ./extras/dl /usr/local/bin/dl
+# copy the utility scripts in
+COPY ./extras/* /usr/local/bin/
 
+# add the user
 RUN useradd --create-home --shell /bin/bash utilishell
 
+# set up sudoers
+RUN echo 'utilishell ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Use the utilishell user from now on
 USER utilishell
 WORKDIR /home/utilishell
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-if [[ -z ${1} ]]; then
+set -e -u
+if [[ -z "${1-}" || "${1}" == '-h' ]]; then
     echo "Usage: dl <url of file to download>"
     exit 1
 fi
