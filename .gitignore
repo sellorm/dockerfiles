@@ -1,3 +1,4 @@
 *.couch
 .loginfo_design
 .DS_Store
+*.log
