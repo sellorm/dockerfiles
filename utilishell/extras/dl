@@ -7,4 +7,3 @@ fi
 FILEURL=${1}
 FILENAME=${FILEURL##*/}
 curl -o ${FILENAME} ${FILEURL}
-

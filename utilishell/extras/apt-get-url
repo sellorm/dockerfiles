@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -e -u
 
-# Check for input file or -h
-if [[ -z ${1-} || ${1} == '-h' ]]; then
-    echo "Usage: apt-get-url <url of file to download and install>"
-    exit 1
-fi
-
 # Check that we're root
 if [[ ${UID} -ne 0 ]]; then
     echo "You must be root to run this utility"
     exit 2
+fi
+
+# Check for input file or -h
+if [[ -z ${1-} || ${1} == '-h' ]]; then
+    echo "Usage: apt-get-url <url of file to download and install>"
+    exit 1
 fi
 
 # set up the variables
