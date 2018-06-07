@@ -6,7 +6,8 @@ FROM debian:stable-slim
 # currently missing due to dependency errors - postgresql-client
 RUN apt-get update && apt-get upgrade -y && \
   apt-get install -y curl htop nano-tiny vim-tiny git make tree \
-    mysql-client sudo gdebi && \ 
+    mysql-client sudo gdebi r-base nodejs ruby golang awscli \
+    s3cmd sqlite3 python-pip python3-pip && \ 
   apt-get clean -y && \
   apt-get autoclean -y && \
   apt-get autoremove -y
@@ -36,6 +37,9 @@ alias ll="ls -l"\n\
 alias vim="vi"\n\
 # nano\n\
 alias nano="nano-tiny"\n\
+\n\
+# terminal setting\n\
+export term=xterm\n\
 \n\
 # bash history mods\n\
 export HISTCONTROL=ignoreboth:erasedups' >> ~/.bashrc

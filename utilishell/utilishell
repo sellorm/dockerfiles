@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 export mything=thisvalue
-docker run -ti -e mything --rm sellorm/utilishell
+docker run -ti -e mything -v ${PWD}:/data --rm sellorm/utilishell
